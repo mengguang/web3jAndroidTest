@@ -9,7 +9,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.RawTransaction;
 import org.web3j.crypto.TransactionEncoder;
@@ -50,7 +49,7 @@ public class MainActivity extends Activity {
         String rpcUrl = "rpc url here.";
         writeLogMessage(rpcUrl);
         Web3j web3 = Web3jFactory.build(new HttpService(rpcUrl));
-        NetVersion netVersion = null;
+        NetVersion netVersion;
         try {
             netVersion = web3.netVersion().send();
         } catch (IOException e) {
@@ -75,7 +74,7 @@ public class MainActivity extends Activity {
 //        }
 
         fileName = "UTC--2018-08-12T17-19-36.059--356f6402cc10154593e36ddc0107989b5a6d9608.json";
-        Credentials credentials = null;
+        Credentials credentials;
         try {
             credentials = WalletUtils.loadCredentials(
                     "123qwe",
